@@ -1,0 +1,135 @@
+<Project>
+  <Name>RFID_MSC</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Untitled</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Main</Name>
+        <Access>Public</Access>
+        <Location left="244" top="10" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public function tap_rfid()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Employees</Name>
+        <Access>Public</Access>
+        <Location left="244" top="582" />
+        <Size width="211" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">private string rfid_uid { get; set; }</Member>
+        <Member type="Property">private string full_name { get; set; }</Member>
+        <Member type="Property">private string email { get; set; }</Member>
+        <Member type="Property">private string employee_image { get; set; }</Member>
+        <Member type="Property">private int contact_number { get; set; }</Member>
+        <Member type="Property">private string address { get; set; }</Member>
+        <Member type="Property">private int age { get; set; }</Member>
+        <Member type="Constructor">public Employees()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Department</Name>
+        <Access>Public</Access>
+        <Location left="519" top="594" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">private int department_id { get; set; }</Member>
+        <Member type="Property">private string department_name { get; set; }</Member>
+        <Member type="Constructor">public Department()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Position</Name>
+        <Access>Public</Access>
+        <Location left="10" top="582" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">private int position_id { get; set; }</Member>
+        <Member type="Property">private string position_name { get; set; }</Member>
+        <Member type="Constructor">public Position()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Connection</Name>
+        <Access>Public</Access>
+        <Location left="261" top="286" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">const string HOST = "localhost"</Member>
+        <Member type="Field">const string USER = "root"</Member>
+        <Member type="Field">const string PASS = ""</Member>
+        <Member type="Field">const string DATABASE = "..."</Member>
+        <Member type="Method">public function connect()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="2" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>490</X>
+          <Y>714</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>197</X>
+          <Y>691</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="4" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>448</X>
+          <Y>370</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>597</X>
+          <Y>378</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="4" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="4" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>138</X>
+          <Y>369</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>89</X>
+          <Y>525</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>

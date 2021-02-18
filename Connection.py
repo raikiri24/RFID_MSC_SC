@@ -1,7 +1,7 @@
 import mysql.connector
 
 class Connection:
-
+weq
     # def __init__(self):
     #     HOST = "localhost"
     #     USER = "root"

@@ -1,7 +1,7 @@
 ######### 
 def choose_window():
-    windows = [1,2,3]
-    print("\t############### \t\n1. EMPLOYEES\t\n2. DEPARTMENT\t\n3. POSITION\t\n###############\n")
+    windows = (1,2,3)
+    print("\t############### \n\t1. EMPLOYEES\t\n2. DEPARTMENT\n\t3. POSITION\n\t###############\n")
 
     ###### PILI NG ANONG WINDOW AEDIT #############
 
@@ -38,6 +38,7 @@ def switch_to_other_window(choosed_window):
 
     elif choosed_window == 2:
         department = Department()
+
 
     else:
         position = Position()

@@ -1,34 +1,27 @@
 import mysql.connector
 
 class Connection:
+    DATABASE = "MSC_Shit5"
+    def __init__(self):
+        print("Initialized")
+        self.create_database()
+        
 
-    # def __init__(self):
-    #     HOST = "localhost"
-    #     USER = "root"
-    #     PASSWORD = ""
-    #     DATABASE = "msc_database"
-
-    HOST = "localhost"
-    USER = "root"
-    PASSWORD = ""
-    DATABASE = "msc_database"
-
-    def connect():
+    def connect(self):
         con = mysql.connector.connect(
-            host=self.HOST, 
-            user=self.USER, 
-            password=self.PASSWORD,
-            database=self.DATABASE
+            host = "localhost", 
+            user = "root", 
+            password = ""
             )
         return con
-
-    def create_database():
+    def create_database(self):
         db = self.connect()
         cursor = db.cursor()
-        query = "CREATE DATABASE %s"
-        value = (self.DATABASE,)
-        cursor.execute(query, value)
-        cursor.commit()
+        query = f"CREATE DATABASE {self.DATABASE}"
+        cursor.execute(query)
         db.close()
 
-    create_database()
+
+
+connectDB = Connection()
+connectDB.create_database()

@@ -1,3 +1,5 @@
+import Connection
+import time
 ######### 
 def choose_window():
     windows = (1,2,3)
@@ -49,3 +51,8 @@ choosed_window = choose_window()
 switch_to_other_window(choosed_window)
 
 
+###TESTING####
+connectDB = Connection()
+
+time.sleep(2)
+print(connectDB.connect())

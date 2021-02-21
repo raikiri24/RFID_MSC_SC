@@ -1,49 +1,47 @@
 from tkinter import*
 from PIL import ImageTk, Image
 
+root=Tk()
+class LoginWindow:
+    #para widget ng login
+    def __init__(self,root):
 
-root = Tk()
-#cfd1ce
-#para sa pag clicked ng login button
-def clicked(): 
-    clicked_label = Label(root).pack()
+    
+        self.root=root
+        self.root.title("Login")
+        self.root.geometry("1200x700+200+70")
+        self.root.resizable(False,False)
 
-#para sa entry box (placeholder)
-def click(event):
-    user.config(state=NORMAL)
-    user.delete(0, END)
-def click1(event):
-    passw.config(state=NORMAL)
-    passw.delete(0, END)
+        #para sa background image
+        self.image=ImageTk.PhotoImage(file="msc.jpg")
+        self.label=Label(self.root,image=self.image)
+        self.label.pack()
+        
+        #canvas
+        self.canvas = Canvas(self.root,borderwidth=10)
+        self.canvas.place(x=390,y=170,width=400,height=400)
+      
+        #ito ung sa image na png
+        self.image1=ImageTk.PhotoImage(file="msclogo.png")
+        self.label1=Label(self.root,image=self.image1,borderwidth=10)
+        self.label1.place(x=550,y=180)
 
-#logo image
+        #label and entry box for user and password
+        self.userlabel=Label(self.canvas,text="USER_ID",font=("Andalus",14,'bold'),fg="green")
+        self.userlabel.place(x=80,y=110)
 
-image = Image.open("msc.jpg")
-image = image.resize((200, 200), Image.ANTIALIAS)
-my_img = ImageTk.PhotoImage(image)
-logo = Label(image = my_img)
-logo.pack(pady = 20)
+        self.userentry=Entry(self.canvas,show="",font=("calibri",14),borderwidth=5)
+        self.userentry.place(x=80,y=150,width=250)
 
+        self.passlabel=Label(self.canvas,text="PASSWORD",font=("Andalus",14,'bold'),fg="green")
+        self.passlabel.place(x=80,y=210)
+    
+        self.passentry=Entry(self.canvas,show="*",font=("calibri",14),borderwidth=5)
+        self.passentry.place(x=80,y=250,width=250)
 
-
-# textbox for user and password
-user = Entry(root, width = 30)
-user.insert(0, "Username")
-user.config(state = DISABLED)
-user.bind("<Button-1>", click)
-user.pack(pady=10)
-
-passw = Entry(root, width = 30)
-passw.insert(0, "Password" )
-passw.config(state = DISABLED)
-passw.bind("<Button-1>", click1)
-passw.pack(pady = 10)
-
-#login button
-login = Button(root, text = "login", bg = "green",command =clicked, width = 10)
-login.pack()
-
-
-
-
+        #login button
+        self.loginbutton = Button(self.canvas, text="LOGIN",borderwidth=5,relief=GROOVE, activebackground="#0B0F08",activeforeground="white",fg="white",bg="green",font=("arial",15,'bold'))
+        self.loginbutton.place(x=80,y=300,width=250)
+     
+main=LoginWindow(root)
 root.mainloop()

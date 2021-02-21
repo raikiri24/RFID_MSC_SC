@@ -24,24 +24,28 @@ class LoginWindow:
         #ito ung sa image na png
         self.image1=ImageTk.PhotoImage(file="msclogo.png")
         self.label1=Label(self.root,image=self.image1,borderwidth=10)
-        self.label1.place(x=550,y=180)
+        self.label1.place(x=550,y=200)
 
         #label and entry box for user and password
         self.userlabel=Label(self.canvas,text="USER_ID",font=("Andalus",14,'bold'),fg="green")
-        self.userlabel.place(x=80,y=110)
+        self.userlabel.place(x=80,y=150)
 
         self.userentry=Entry(self.canvas,show="",font=("calibri",14),borderwidth=5)
-        self.userentry.place(x=80,y=150,width=250)
+        self.userentry.place(x=80,y=190,width=250)
 
         self.passlabel=Label(self.canvas,text="PASSWORD",font=("Andalus",14,'bold'),fg="green")
-        self.passlabel.place(x=80,y=210)
+        self.passlabel.place(x=80,y=250)
     
         self.passentry=Entry(self.canvas,show="*",font=("calibri",14),borderwidth=5)
-        self.passentry.place(x=80,y=250,width=250)
+        self.passentry.place(x=80,y=290,width=250)
+
+        #check box
+        self.check_pass = Checkbutton(self.canvas, text="Show Password",font=("Andalus",11))
+        self.check_pass.place(x=20,y=340,width=250)
 
         #login button
-        self.loginbutton = Button(self.canvas, text="LOGIN",borderwidth=5,relief=GROOVE, activebackground="#0B0F08",activeforeground="white",fg="white",bg="green",font=("arial",15,'bold'))
-        self.loginbutton.place(x=80,y=300,width=250)
+        self.loginbutton = Button(self.root, text="LOGIN",borderwidth=5,relief=GROOVE, activebackground="#0B0F08",activeforeground="white",fg="white",bg="green",font=("arial",15,'bold'))
+        self.loginbutton.place(x=473,y=550,width=250)
      
 main=LoginWindow(root)
 root.mainloop()

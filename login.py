@@ -1,13 +1,12 @@
-from tkinter import*
+from tkinter import *
 from PIL import ImageTk, Image
 
-root=Tk()
+
 class LoginWindow:
     #para widget ng login
-    def __init__(self,root):
+    def __init__(self):
 
-    
-        self.root=root
+        self.root = Tk()
         self.root.title("Login")
         self.root.geometry("1200x700+200+70")
         self.root.resizable(False,False)
@@ -30,7 +29,7 @@ class LoginWindow:
         self.userlabel=Label(self.canvas,text="USER_ID",font=("Andalus",14,'bold'),fg="green")
         self.userlabel.place(x=80,y=150)
 
-        self.userentry=Entry(self.canvas,show="",font=("calibri",14),borderwidth=5)
+        self.userentry=Entry(self.canvas,font=("calibri",14),borderwidth=5)
         self.userentry.place(x=80,y=190,width=250)
 
         self.passlabel=Label(self.canvas,text="PASSWORD",font=("Andalus",14,'bold'),fg="green")
@@ -39,13 +38,27 @@ class LoginWindow:
         self.passentry=Entry(self.canvas,show="*",font=("calibri",14),borderwidth=5)
         self.passentry.place(x=80,y=290,width=250)
 
-        #check box
-        self.check_pass = Checkbutton(self.canvas, text="Show Password")
+        # Show Password Check box
+        self.check_var = IntVar()  # Variable for Checkbutton's value 1/0
+        self.check_pass = Checkbutton(self.canvas, text="Show Password", command=self.show_password, \
+            variable=self.check_var, onvalue=1, offvalue=0)
         self.check_pass.place(x=10,y=340,width=250)
 
         #login button
-        self.loginbutton = Button(self.root, text="LOGIN",borderwidth=5,relief=GROOVE, activebackground="#0B0F08",activeforeground="white",fg="white",bg="green",font=("arial",15,'bold'))
+        self.loginbutton = Button(self.root, text="LOGIN",borderwidth=5,relief=GROOVE, \
+            activebackground="#0B0F08",activeforeground="white",fg="white",bg="green", \
+            font=("arial",15,'bold'))
         self.loginbutton.place(x=473,y=550,width=250)
-     
-main=LoginWindow(root)
-root.mainloop()
+
+        self.root.mainloop()
+
+    # Show Password function
+    def show_password(self):
+        if self.check_var.get() == 1:  # If checked
+            self.passentry.configure(show="")
+        else:
+            self.passentry.configure(show="*")
+
+
+
+app = LoginWindow()

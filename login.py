@@ -22,9 +22,9 @@ class LoginWindow:
         self.canvas.place(x=390,y=170,width=400,height=400)
       
         #ito ung sa image na png
-        self.image1=ImageTk.PhotoImage(file="msclogo.png")
+        self.image1=ImageTk.PhotoImage(file="msclogo1.png")
         self.label1=Label(self.root,image=self.image1,borderwidth=10)
-        self.label1.place(x=550,y=200)
+        self.label1.place(x=527,y=170)
 
         #label and entry box for user and password
         self.userlabel=Label(self.canvas,text="USER_ID",font=("Andalus",14,'bold'),fg="green")
@@ -40,8 +40,8 @@ class LoginWindow:
         self.passentry.place(x=80,y=290,width=250)
 
         #check box
-        self.check_pass = Checkbutton(self.canvas, text="Show Password",font=("Andalus",11))
-        self.check_pass.place(x=20,y=340,width=250)
+        self.check_pass = Checkbutton(self.canvas, text="Show Password")
+        self.check_pass.place(x=10,y=340,width=250)
 
         #login button
         self.loginbutton = Button(self.root, text="LOGIN",borderwidth=5,relief=GROOVE, activebackground="#0B0F08",activeforeground="white",fg="white",bg="green",font=("arial",15,'bold'))

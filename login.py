@@ -12,7 +12,7 @@ class LoginWindow:
         self.root.resizable(False,False)
 
         #para sa background image
-        self.image=ImageTk.PhotoImage(file="msc.jpg")
+        self.image=ImageTk.PhotoImage(file="images/msc.jpg")
         self.label=Label(self.root,image=self.image)
         self.label.pack()
         
@@ -21,7 +21,7 @@ class LoginWindow:
         self.canvas.place(x=390,y=170,width=400,height=400)
       
         #ito ung sa image na png
-        self.image1=ImageTk.PhotoImage(file="msclogo1.png")
+        self.image1=ImageTk.PhotoImage(file="images/msclogo1.png")
         self.label1=Label(self.root,image=self.image1,borderwidth=10)
         self.label1.place(x=527,y=170)
 

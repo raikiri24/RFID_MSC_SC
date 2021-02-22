@@ -1,51 +1,49 @@
 from tkinter import*
 from PIL import ImageTk, Image
 
-root=Tk()
-class LoginWindow:
-    #para widget ng login
-    def __init__(self,root):
 
-    
-        self.root=root
-        self.root.title("Login")
-        self.root.geometry("1200x700+200+70")
-        self.root.resizable(False,False)
+root = Tk()
+#cfd1ce
+#para sa pag clicked ng login button
+def clicked(): 
+    clicked_label = Label(root).pack()
 
-        #para sa background image
-        self.image=ImageTk.PhotoImage(file="msc.jpg")
-        self.label=Label(self.root,image=self.image)
-        self.label.pack()
-        
-        #canvas
-        self.canvas = Canvas(self.root,borderwidth=10)
-        self.canvas.place(x=390,y=170,width=400,height=400)
-      
-        #ito ung sa image na png
-        self.image1=ImageTk.PhotoImage(file="msclogo1.png")
-        self.label1=Label(self.root,image=self.image1,borderwidth=10)
-        self.label1.place(x=527,y=170)
+#para sa entry box (placeholder)
+def click(event):
+    user.config(state=NORMAL)
+    user.delete(0, END)
+def click1(event):
+    passw.config(state=NORMAL)
+    passw.delete(0, END)
 
-        #label and entry box for user and password
-        self.userlabel=Label(self.canvas,text="USER_ID",font=("Andalus",14,'bold'),fg="green")
-        self.userlabel.place(x=80,y=150)
+#logo image
 
-        self.userentry=Entry(self.canvas,show="",font=("calibri",14),borderwidth=5)
-        self.userentry.place(x=80,y=190,width=250)
+image = Image.open("msc.jpg")
+image = image.resize((200, 200), Image.ANTIALIAS)
+my_img = ImageTk.PhotoImage(image)
+logo = Label(image = my_img)
+logo.pack(pady = 20)
 
-        self.passlabel=Label(self.canvas,text="PASSWORD",font=("Andalus",14,'bold'),fg="green")
-        self.passlabel.place(x=80,y=250)
-    
-        self.passentry=Entry(self.canvas,show="*",font=("calibri",14),borderwidth=5)
-        self.passentry.place(x=80,y=290,width=250)
 
-        #check box
-        self.check_pass = Checkbutton(self.canvas, text="Show Password")
-        self.check_pass.place(x=10,y=340,width=250)
 
-        #login button
-        self.loginbutton = Button(self.root, text="LOGIN",borderwidth=5,relief=GROOVE, activebackground="#0B0F08",activeforeground="white",fg="white",bg="green",font=("arial",15,'bold'))
-        self.loginbutton.place(x=473,y=550,width=250)
-     
-main=LoginWindow(root)
+# textbox for user and password
+user = Entry(root, width = 30)
+user.insert(0, "Username")
+user.config(state = DISABLED)
+user.bind("<Button-1>", click)
+user.pack(pady=10)
+
+passw = Entry(root, width = 30)
+passw.insert(0, "Password" )
+passw.config(state = DISABLED)
+passw.bind("<Button-1>", click1)
+passw.pack(pady = 10)
+
+#login button
+login = Button(root, text = "login", bg = "green",command =clicked, width = 10)
+login.pack()
+
+
+
+
 root.mainloop()

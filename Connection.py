@@ -1,21 +1,16 @@
 import mysql.connector
 
 class Connection:
-
-    HOST = "localhost"
-    USER = "root"
-    PASSWORD = ""
     DATABASE = "msc_database"
-
     def __init__(self):
-
+        print("Initialized")
         self.create_database()
-
-    def connect():
+        
+    def connect(self):
         con = mysql.connector.connect(
-            host=self.HOST, 
-            user=self.USER, 
-            password=self.PASSWORD
+            host="localhost", 
+            user="root", 
+            password=""
             )
         return con
 
@@ -25,3 +20,6 @@ class Connection:
         query = f"CREATE DATABASE {self.DATABASE}"
         cursor.execute(query)
         db.close()
+
+connectDB = Connection()
+connectDB.create_database()

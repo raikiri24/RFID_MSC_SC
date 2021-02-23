@@ -36,7 +36,7 @@ class Employee:
 
     @age.setter
     def age(self, age):
-        if age < 0:
+        if age < 17 > 99:  # Validation for age
             raise ValueError("You're under age.")
         self._age = age
 

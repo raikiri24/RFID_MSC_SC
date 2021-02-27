@@ -19,7 +19,7 @@ class LoginWindow:
         #canvas
         self.canvas = Canvas(self.root,borderwidth=10)
         self.canvas.place(x=390,y=170,width=400,height=400)
-      
+    
         #ito ung sa image na png
         self.image1=ImageTk.PhotoImage(file="images/msclogo1.png")
         self.label1=Label(self.root,image=self.image1,borderwidth=10)

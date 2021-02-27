@@ -20,14 +20,10 @@ class MainWindow:
         self.label=Label(self.root,image=self.image)
         self.label.place(x=0,y=0)
        
-       
-
-        
         #Function for Main button. para mapunta sa front ung Frame
         def clicked_home():
             self.frame_home.lift()
-            
-            
+                 
         ###Para sa Employee Frame#####       
         def clicked_emp():
             self.frame_emp.lift()
@@ -137,22 +133,16 @@ class MainWindow:
             self.gender_cbox.current(0)
             self.gender_cbox.place(x=20,y=385,width=250,height=31)
 
-            
-            
-            
-
             #Register button for the employee registration
             self.btn_save = Button(self.frame_emp, text="Register",borderwidth=3,relief=GROOVE,activebackground="#0B0F08",
             activeforeground="white",fg="white",bg="green",font=("arial",15,'bold'),command=clicked_emp)
             self.btn_save.place(x=20,y=610,width=250,height=50)
 
-
         def clicked_dep():
             self.frame_dep.lift()
         def clicked_pos():
             self.frame_pos.lift()
-   
-        
+           
         #Container for Main button example: Home,Employee etc.
         self.canvas = Canvas(self.root)
         self.canvas.place(x=10,y=10,width=300,height=680)
@@ -162,20 +152,16 @@ class MainWindow:
         self.label1=Label(self.canvas,image=self.image1,borderwidth=10)
         self.label1.place(x=75,y=5)
 
-
         #Home button
         self.Home = Button(self.canvas, text="HOME",borderwidth=5,relief=GROOVE, activebackground="#0B0F08",
         activeforeground="white",fg="white",bg="green",font=("arial",15,'bold'),command=clicked_home)
         self.Home.place(x=10,y=150,width=280,height=60)
-        
-    
-       
+               
         #employee button
         self.employee = Button(self.canvas, text="EMPLOYEE",borderwidth=5,relief=GROOVE,activebackground="#0B0F08",
          activeforeground="white",fg="white",bg="green",font=("arial",15,'bold'),command=clicked_emp)
         self.employee.place(x=10,y=210,width=280,height=60)
          
-
         #employee button
         self.department = Button(self.canvas, text="DEPARTMENT",borderwidth=5,relief=GROOVE,
          activebackground="#0B0F08",activeforeground="white",fg="white",bg="green",font=("arial",15,'bold')
@@ -188,7 +174,7 @@ class MainWindow:
         ,command=clicked_pos)
         self.post.place(x=10,y=330,width=280,height=60)
 
-          #employee button
+        #employee button
         self.settings = Button(self.canvas, text="SETTINGS",borderwidth=5,relief=GROOVE,
          activebackground="#0B0F08",activeforeground="white",fg="white",bg="green",font=("arial",15,'bold'))
         self.settings.place(x=10,y=390,width=280,height=60)
@@ -216,14 +202,6 @@ class MainWindow:
         #frame for home info
         self.frame_home = Frame(self.root)
         self.frame_home.place(x=320,y=10,width=870,height=680)
-
-       
- 
-
-       
-        
-
-       
 
 
 main=MainWindow(root)

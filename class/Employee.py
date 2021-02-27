@@ -85,8 +85,7 @@ class Employee:
         cursor = db.cursor()
         query = "INSERT INTO employees(uid, full_name, age, address, email, contact_number, employee_image) \
             VALUES(%s, %s, %s, %s, %s, %s, %s)"
-        values = (self._uid, self._full_name, self._age, self._address, self._email, self._contact_number\
-            self._employee_image)
+        values = (self._uid, self._full_name, self._age, self._address, self._email, self._contact_number, self._employee_image)
         cursor.execute(query, values)
         db.commit()
         db.close()

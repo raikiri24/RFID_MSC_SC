@@ -1,5 +1,4 @@
-from connection import Connection
-
+from classes.Connection import Connection
 
 class Employee:
 
@@ -36,9 +35,10 @@ class Employee:
 
     @age.setter
     def age(self, age):
-        if age < 17 > 99:  # Validation for age
-            raise ValueError("You're under age.")
-        self._age = age
+        if 17 < age < 60:  # Validation for age
+            self._age = age
+        else:
+            raise ValueError("Age is not valid. Try again.")
 
     @property
     def address(self):

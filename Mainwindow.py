@@ -1,14 +1,17 @@
-from tkinter import*
+from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk, Image
+from classes.Employee import Employee
+from classes.Connection import Connection
+
 
 root=Tk()
- 
-       
+
+
 class MainWindow:
     #para widget ng mainform
     def __init__(self, root, *args, **kwargs):
-       
+
         self.root = root
         self.root.title("RFID SYSTEM")
         self.root.geometry("1200x700+200+70")
@@ -16,7 +19,7 @@ class MainWindow:
         self.root.resizable(False, False)
 
         #para sa background image
-        self.image = ImageTk.PhotoImage(file="background_win.jpg")
+        self.image = ImageTk.PhotoImage(file="images/msc.jpg")
         self.label = Label(self.root, image=self.image)
         self.label.place(x=0, y=0)
        
@@ -136,18 +139,19 @@ class MainWindow:
 
             #combo box for department options
             options_gender = [
-                "","MALE",
+                "",
+                "MALE",
                 "FEMALE"
             ]
             self.gender_cbox = ttk.Combobox(self.frame_emp, value=options_gender)
             self.gender_cbox.current(0)
             self.gender_cbox.place(x=20, y=385, width=250, height=31)
 
-            #Register button for the employee registration
-            self.btn_save = Button(self.frame_emp, text="Register", borderwidth=3, relief=GROOVE,
+            # REGISTER button for the employee registration
+            self.btn_register = Button(self.frame_emp, text="Register", borderwidth=3, relief=GROOVE,
             activebackground="#0B0F08", activeforeground="white", fg="white", bg="green", 
-            font=("arial", 15, 'bold'), command=clicked_emp)
-            self.btn_save.place(x=20, y=610, width=250, height=50)
+            font=("arial", 15, 'bold'), command=self.register_employee)
+            self.btn_register.place(x=20, y=610, width=250, height=50)
 
         def clicked_dep():
             self.frame_dep.lift()
@@ -159,7 +163,7 @@ class MainWindow:
         self.canvas.place(x=10, y=10, width=300, height=680)
         #ito ung sa image na png
         
-        self.image1 = ImageTk.PhotoImage(file="msclogo1.png")
+        self.image1 = ImageTk.PhotoImage(file="images/msclogo1.png")
         self.label1 = Label(self.canvas, image=self.image1, borderwidth=10)
         self.label1.place(x=75, y=5)
 
@@ -218,6 +222,10 @@ class MainWindow:
         self.frame_home = Frame(self.root)
         self.frame_home.place(x=320, y=10, width=870, height=680)
 
+    # REGISTERING Employee
+    def register_employee(self):
+        employee = Employee()
+        
 
 main=MainWindow(root)
 root.mainloop()

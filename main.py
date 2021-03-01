@@ -1,4 +1,4 @@
-import Connection
+from classes.Connection import Connection
 import time
 ######### 
 def choose_window():

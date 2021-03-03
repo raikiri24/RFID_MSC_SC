@@ -33,6 +33,7 @@ class MainWindow:
         self.root = root
         self.root.title("RFID SYSTEM")
         self.root.geometry("1200x700+200+70")
+
         self.root.configure(bg="#006600")
         self.root.resizable(False, False)
 
@@ -40,8 +41,11 @@ class MainWindow:
         self.image = ImageTk.PhotoImage(file="images/msc.jpg")
         self.label = Label(self.root, image=self.image)
         self.label.place(x=0, y=0)
+
        
         #Function for Main button. para mapunta sa front ung Frame
+
+        ###Para sa Home Frame##### 
         def clicked_home():
             self.frame_home.lift()
                  
@@ -53,53 +57,49 @@ class MainWindow:
             font=("Andalus", 24, 'bold'), fg="white", bg="#339900", borderwidth=10)
             self.head_label.place(x=0, y=20, width=880)
             
-            self.fname_label = Label(self.frame_emp, text="First Name", font=("Andalus", 12, 'bold'), 
-            fg="black")
-            self.fname_label.place(x=20, y=100)
+
+            self.name_label=Label(self.frame_emp,text="First Name",font=("Andalus",12,'bold'),fg="black",bg="white")
+            self.name_label.place(x=20,y=100)
             
-            self.mname_label = Label(self.frame_emp, text="Middle Name", font=("Andalus", 12, 'bold'), 
-            fg="black")
-            self.mname_label.place(x=20, y=185)
+            self.mname_label=Label(self.frame_emp,text="Middle Name",font=("Andalus",12,'bold'),fg="black",bg="white")
+            self.mname_label.place(x=20,y=185)
            
-            self.lname_label = Label(self.frame_emp, text="Last Name", font=("Andalus", 12, 'bold'),
-            fg="black")     
-            self.lname_label.place(x=20, y=270)
+            self.lname_label=Label(self.frame_emp,text="Last Name",font=("Andalus",12,'bold'),fg="black",bg="white")     
+            self.lname_label.place(x=20,y=270)
 
-            self.gender_label = Label(self.frame_emp, text="Gender", font=("Andalus", 12, 'bold'),
-            fg="black")
-            self.gender_label.place(x=20, y=350)
+            self.gender_label=Label(self.frame_emp,text="Sex",font=("Andalus",12,'bold'),fg="black",bg="white")
+            self.gender_label.place(x=20,y=350)
 
-            self.age_label = Label(self.frame_emp, text="Age", font=("Andalus", 12, 'bold'),
-            fg="black")     
-            self.age_label.place(x=20, y=430)
+            self.bdate_label=Label(self.frame_emp,text="Birth Date",font=("Andalus",12,'bold'),fg="black",bg="white")     
+            self.bdate_label.place(x=20,y=430)
 
-            self.address_label = Label(self.frame_emp, text="Address", font=("Andalus", 12, 'bold'),
-            fg="black")     
-            self.address_label.place(x=20, y=510)
+            self.address_label=Label(self.frame_emp,text="Address",font=("Andalus",12,'bold'),fg="black",bg="white")     
+            self.address_label.place(x=20,y=510)
 
             #label sa right side ng employee frame
-            self.department_label = Label(self.frame_emp, text="Department", font=("Andalus", 12, 'bold'),
-            fg="black")     
-            self.department_label.place(x=350, y=95)
+            self.department_label=Label(self.frame_emp,text="Department",font=("Andalus",12,'bold'),fg="black",bg="white")     
+            self.department_label.place(x=350,y=95)
 
-            self.position_label = Label(self.frame_emp, text="Position", font=("Andalus", 12, 'bold'),
-            fg="black")
-            self.position_label.place(x=350, y=181)
+            self.position_label=Label(self.frame_emp,text="Position",font=("Andalus",12,'bold'),fg="black",bg="white")
+            self.position_label.place(x=350,y=181)
 
-            self.rfid_label = Label(self.frame_emp, text="RFID UID", font=("Andalus", 12, 'bold'),
-            fg="black")
-            self.rfid_label.place(x=350, y=265)
+            self.Salary_label=Label(self.frame_emp,text="Salary Grade",font=("Andalus",12,'bold'),fg="black",bg="white")
+            self.Salary_label.place(x=350,y=265)
 
-            self.email_label = Label(self.frame_emp, text="Email Address", font=("Andalus", 12, 'bold'),
-            fg="black")
-            self.email_label.place(x=350, y=350)
+            self.email_label=Label(self.frame_emp,text="Email Address",font=("Andalus",12,'bold'),fg="black",bg="white")
+            self.email_label.place(x=350,y=350)
 
-            self.contact_label = Label(self.frame_emp, text="Contact Number", font=("Andalus", 12, 'bold'),
-            fg="black")
-            self.contact_label.place(x=350, y=435)
+            self.contact_label=Label(self.frame_emp,text="Contact Details",font=("Andalus",12,'bold'),fg="black",bg="white")
+            self.contact_label.place(x=350,y=435)
 
-            self.picbox_label = Label(self.frame_emp, text="", bg="darkgreen")
-            self.picbox_label.place(x=680, y=125, width=130, height=130)
+            self.rfid_label=Label(self.frame_emp,text="RFID Number",font=("Andalus",12,'bold'),fg="black",bg="white")
+            self.rfid_label.place(x=350,y=510)
+            
+            ###Picture Box###
+            self.picbox_label=Label(self.frame_emp,text="",bg="darkgreen")
+            self.picbox_label.place(x=680,y=125, width=130,height=130)
+           
+
 
             self.image_path_label = Label(self.frame_emp, text="Image Path")
             self.image_path_label.place(x=680, y=260)
@@ -125,8 +125,14 @@ class MainWindow:
             self.email_entry = Entry(self.frame_emp, font=("calibri", 14), borderwidth=5)
             self.email_entry.place(x=350, y=382, width=250)
 
-            self.contact_number_entry = Entry(self.frame_emp, font=("calibri", 14), borderwidth=5)
-            self.contact_number_entry.place(x=350, y=463, width=250)
+
+            self.contact_entry=Entry(self.frame_emp,font=("calibri",14),borderwidth=5)
+            self.contact_entry.place(x=350,y=463,width=250)
+
+            self.rfid_entry=Entry(self.frame_emp,font=("calibri",14),borderwidth=5)
+            self.rfid_entry.place(x=350,y=548,width=250)
+
+
 
             #combo box for department options
             options_dep = [
@@ -166,21 +172,33 @@ class MainWindow:
             self.gender_cbox.current(0)
             self.gender_cbox.place(x=20, y=385, width=250, height=31)
 
-            # REGISTER button for the employee registration
-            self.btn_register = Button(self.frame_emp, text="Register", borderwidth=3, relief=GROOVE,
-            activebackground="#0B0F08", activeforeground="white", fg="white", bg="green", 
-            font=("arial", 15, 'bold'), command=self.register_employee)
-            self.btn_register.place(x=20, y=610, width=250, height=50)
 
-            # BROWSE button
-            self.browse_btn = Button(self.frame_emp, text='Browse', command=self.open_image)
-            self.browse_btn.place(x=680, y=302)
+            #Register button for the employee registration
+            self.btn_save = Button(self.frame_emp, text="Register",borderwidth=3,relief=GROOVE,activebackground="#0B0F08",
+            activeforeground="white",fg="white",bg="green",font=("arial",15,'bold'))
+            self.btn_save.place(x=45,y=610,width=200,height=50)
 
-        # Department Tab
+            #Update button for the employee registration
+            self.btn_update = Button(self.frame_emp, text="Update",borderwidth=3,relief=GROOVE,activebackground="#0B0F08",
+            activeforeground="white",fg="white",bg="green",font=("arial",15,'bold'))
+            self.btn_update.place(x=380,y=610,width=200,height=50)
+
+            #Update button for the employee registration
+            self.btn_delete = Button(self.frame_emp, text="Delete",borderwidth=3,relief=GROOVE,activebackground="#0B0F08",
+            activeforeground="white",fg="white",bg="red",font=("arial",15,'bold'))
+            self.btn_delete.place(x=650,y=610,width=200,height=50)
+
+            #picture box button for the employee registration
+            self.btn_picture = Button(self.frame_emp, text="Upload",borderwidth=3,relief=GROOVE,activebackground="#0B0F08",
+            activeforeground="white",fg="white",bg="green",font=("arial",12,'bold'))
+            self.btn_picture.place(x=695,y=270,width=100,height=30)
+
+        ###Para sa Department Frame##### 
         def clicked_dep():
             self.frame_dep.lift()
         
-        # Position Tab
+        ###Para sa Position Frame##### 
+
         def clicked_pos():
             self.frame_pos.lift()
            
@@ -189,9 +207,11 @@ class MainWindow:
         self.canvas.place(x=10, y=10, width=300, height=680)
         #ito ung sa image na png
         
-        self.image1 = ImageTk.PhotoImage(file="images/msclogo1.png")
-        self.label1 = Label(self.canvas, image=self.image1, borderwidth=10)
-        self.label1.place(x=75, y=5)
+
+        self.image1=ImageTk.PhotoImage(file="images/msclogo1.png")
+        self.label1=Label(self.canvas,image=self.image1,borderwidth=10)
+        self.label1.place(x=75,y=5)
+
 
         #Home button
         self.Home = Button(self.canvas, text="HOME", borderwidth=5, relief=GROOVE, activebackground="#0B0F08",
@@ -243,7 +263,13 @@ class MainWindow:
         self.frame_dep.place(x=320, y=10, width=870, height=680)
         #frame for employee info
         self.frame_emp = Frame(self.root)
-        self.frame_emp.place(x=320, y=10, width=870, height=680)
+
+        self.frame_emp.place(x=320,y=10,width=870,height=680) 
+
+        self.image2=ImageTk.PhotoImage(file="images/backwin.jpg")
+        self.label2=Label(self.frame_emp,image=self.image2)
+        self.label2.place(x=0,y=0,width=870,height=680) 
+
         #frame for home info
         self.frame_home = Frame(self.root)
         self.frame_home.place(x=320, y=10, width=870, height=680)

@@ -1,12 +1,14 @@
-from connection import Connection
-
+from classes.Connection import Connection
 
 class Employee:
 
     def __init__(self):
         self._uid = ''
-        self._full_name = ''
+        self._first_name = ''
+        self._middle_name = ''
+        self._last_name = ''
         self._age = 0
+        self._gender = ''
         self._address = ''
         self._email = ''
         self._employee_image = ''
@@ -23,12 +25,28 @@ class Employee:
         self._uid = uid
 
     @property
-    def full_name(self):
-        return self._full_name
+    def first_name(self):
+        return self._first_name
 
-    @full_name.setter
-    def full_name(self, full_name):
-        self._name = full_name
+    @first_name.setter
+    def first_name(self, first_name):
+        self._first_name = first_name.title()
+
+    @property
+    def middle_name(self):
+        return self._middle_name
+
+    @middle_name.setter
+    def middle_name(self, middle_name):
+        self._middle_name = middle_name.title()
+
+    @property
+    def last_name(self):
+        return self._last_name
+
+    @last_name.setter
+    def last_name(self, last_name):
+        self._last_name = last_name.title()
 
     @property
     def age(self):
@@ -36,9 +54,19 @@ class Employee:
 
     @age.setter
     def age(self, age):
-        if age < 17 > 99:  # Validation for age
-            raise ValueError("You're under age.")
-        self._age = age
+        age_int = int(age)
+        if 17 < age_int < 60:  # Validation for age
+            self._age = age_int
+        else:
+            raise ValueError("Age is not valid. Try again.")
+
+    @property
+    def gender(self):
+        return self._gender
+
+    @gender.setter
+    def gender(self, gender):
+        self._gender = gender
 
     @property
     def address(self):
@@ -65,8 +93,8 @@ class Employee:
         country_code = "+63"
         if not len(number) == 11:  # Contact number must in the format of '09XXXXXXXXX'
             raise ValueError("Contact number should be 11 characters.")
-        number = number[1:]  # Slice the number to remove 0
-        self._contact_number = country_code + number  # Concatenate country code with sliced number
+        simplified = number[1:]  # Slice the number to remove 0
+        self._contact_number = country_code + simplified  # Concatenate country code with sliced number
 
     @property
     def employee_image(self):
@@ -83,10 +111,11 @@ class Employee:
         con = Connection()
         db = con.connect()
         cursor = db.cursor()
-        query = "INSERT INTO employees(uid, full_name, age, address, email, contact_number, employee_image) \
-            VALUES(%s, %s, %s, %s, %s, %s, %s)"
-        values = (self._uid, self._full_name, self._age, self._address, self._email, self._contact_number\
-            self._employee_image)
+        query = "INSERT INTO employees(rfid_uid, first_name, middle_name, \
+            last_name, age, gender, address, email, contact_number, employee_image) \
+            VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
+        values = (self._uid, self._first_name, self._middle_name, self._last_name, self._age, 
+            self._gender, self._address, self._email, self._contact_number, self._employee_image)
         cursor.execute(query, values)
         db.commit()
         db.close()
@@ -97,7 +126,7 @@ class Employee:
         con = Connection()
         db = con.connect()
         cursor = db.cursor()
-        query = "DELETE FROM employees WHERE uid=%s"
+        query = "DELETE FROM employees WHERE uid=%s;"
         value = (self._uid,)
         cursor.execute(query, value)
         db.commit()
@@ -109,10 +138,10 @@ class Employee:
         con = Connection()
         db = con.connect()
         cursor = db.cursor()
-        query = "UPDATE employees SET full_name=%s, age=%s, address=%s, email=%s, contact_number=%s,\
-            employee_image=%s WHERE uid=%s"
-        values = (self._name, self._age, self._address, self._email, self._contact_number,\
-            self.employee_image, self._uid)
+        query = "UPDATE employees SET first_name=%s, middle_name=%s, last_name=%s, age=%s, address=%s, \
+            email=%s, contact_number=%s, employee_image=%s WHERE rfid_uid=%s;"
+        values = (self._first_name, self._middle_name, self._last_name, self._age, self._address, \
+            self._email, self._contact_number, self.employee_image, self._uid)
         cursor.execute(query, values)
         db.commit()
         db.close()
@@ -123,7 +152,7 @@ class Employee:
         con = Connection()
         db = con.connect()
         cursor = db.cursor()
-        query = "SELECT * FROM employees WHERE uid=%s"
+        query = "SELECT * FROM employees WHERE rfid_uid=%s;"
         value = (uid_to_check,)
         cursor.execute(query, value)
         cursor.fetchall()
@@ -136,9 +165,9 @@ class Employee:
         con = Connection()
         db = con.connect()
         cursor = db.cursor()
-        query = "SELECT * FROM employees WHERE uid=%s"
+        query = "SELECT * FROM employees WHERE rfid_uid=%s;"
         value = (uid_to_extract,)
         cursor.execute(query, value)
-        result = cursor.fetchone()
+        result = cursor.fetchall()
         db.close()
         return result

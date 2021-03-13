@@ -1,4 +1,4 @@
-from Connection import Connection
+from classes.Connection import Connection
 
 
 class Position:

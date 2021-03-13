@@ -34,8 +34,9 @@ class MainWindow:
         self.root.title("RFID SYSTEM")
         self.root.geometry("1200x700+200+70")
 
-        self.root.configure(bg="#006600")
-        self.root.resizable(False, False)
+        self.root.configure(bg="#01a01b")
+        self.root.resizable(False,False)
+
 
         #para sa background image
         self.image = ImageTk.PhotoImage(file="images/msc.jpg")
@@ -201,7 +202,16 @@ class MainWindow:
 
         def clicked_pos():
             self.frame_pos.lift()
-           
+
+        
+        ###Para sa settings Frame##### 
+        def clicked_setting():
+            self.frame_setting.lift()
+
+        ###Para sa settings Frame##### 
+        def clicked_event():
+            self.frame_event.lift()
+    
         #Container for Main button example: Home,Employee etc.
         self.canvas = Canvas(self.root)
         self.canvas.place(x=10, y=10, width=300, height=680)
@@ -224,6 +234,10 @@ class MainWindow:
         font=("arial", 15, 'bold'), command=clicked_emp)
         self.employee.place(x=10, y=210, width=280, height=60)
          
+
+
+
+
         #department button
         self.department = Button(self.canvas, text="DEPARTMENT", borderwidth=5, relief=GROOVE,
         activebackground="#0B0F08", activeforeground="white", fg="white", bg="green",
@@ -255,23 +269,55 @@ class MainWindow:
         self.employee.place(x=10, y=510, width=280, height=60)
        
         #####Frame para sa Main Button#####
+        #frame for event info
+        self.frame_event = Frame(self.root)
+        self.frame_event.place(x=320,y=10,width=870,height=680)
+         ###Background image sa event frame###
+        self.image_eventback=ImageTk.PhotoImage(file="images/backwin2.jpg")
+        self.label_eventback=Label(self.frame_event,image=self.image_eventback)
+        self.label_eventback.place(x=0,y=0,width=870,height=680)
+
+        #frame for setting info
+        self.frame_setting = Frame(self.root)
+        self.frame_setting.place(x=320,y=10,width=870,height=680)
+         ###Background image sa setting frame###
+        self.image_settingback=ImageTk.PhotoImage(file="images/backwin2.jpg")
+        self.label_settingback=Label(self.frame_setting,image=self.image_settingback)
+        self.label_settingback.place(x=0,y=0,width=870,height=680)
+
+
         #frame for position info
-        self.frame_pos = Frame(self.root, borderwidth=10, bg="red")
-        self.frame_pos.place(x=320, y=10, width=870, height=680)
+
+        self.frame_pos = Frame(self.root)
+        self.frame_pos.place(x=320,y=10,width=870,height=680)
+         ###Background image sa position frame###
+        self.image_posback=ImageTk.PhotoImage(file="images/backwin2.jpg")
+        self.label_posback=Label(self.frame_pos,image=self.image_posback)
+        self.label_posback.place(x=0,y=0,width=870,height=680)
+
+
         #frame for department info
-        self.frame_dep = Frame(self.root, borderwidth=10, bg="yellow")
-        self.frame_dep.place(x=320, y=10, width=870, height=680)
+        self.frame_dep = Frame(self.root)
+        self.frame_dep.place(x=320,y=10,width=870,height=680)
+        ###Background image sa department frame###
+        self.image_depback=ImageTk.PhotoImage(file="images/backwin2.jpg")
+        self.label_depback=Label(self.frame_dep,image=self.image_depback)
+        self.label_depback.place(x=0,y=0,width=870,height=680)
+
         #frame for employee info
         self.frame_emp = Frame(self.root)
 
         self.frame_emp.place(x=320,y=10,width=870,height=680) 
+        ###Background image sa employee frame###
+        self.image_empback=ImageTk.PhotoImage(file="images/backwin2.jpg")
+        self.label_empback=Label(self.frame_emp,image=self.image_empback)
+        self.label_empback.place(x=0,y=0,width=870,height=680)
 
-        self.image2=ImageTk.PhotoImage(file="images/backwin.jpg")
-        self.label2=Label(self.frame_emp,image=self.image2)
-        self.label2.place(x=0,y=0,width=870,height=680) 
+        
 
         #frame for home info
         self.frame_home = Frame(self.root)
+
         self.frame_home.place(x=320, y=10, width=870, height=680)
 
     # REGISTERING Employee
@@ -290,6 +336,7 @@ class MainWindow:
         employee.employee_image = self.image_path_label.cget('text')
         employee.contact_number = self.contact_number_entry.get()
         employee.insert_employee_record()
+
         
         self.clear_text()
 
